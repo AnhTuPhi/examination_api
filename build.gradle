@@ -19,6 +19,7 @@ dependencies {
     implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
     implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.2.0.Final'
 //    implementation group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.0.0'
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.0'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //    runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly 'org.postgresql:postgresql'
