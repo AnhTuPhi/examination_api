@@ -1,6 +1,8 @@
 package com.example.examination.controllers;
 
+import com.example.examination.dto.request.UserDetailDto;
 import com.example.examination.dto.response.UserResponseDto;
+import com.example.examination.entity.User;
 import com.example.examination.repository.UserRepository;
 import com.example.examination.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,13 @@ public class UserController {
     @PreAuthorize("hasRole('USER') or hasRole('TEACHER')")
     public ResponseEntity<UserResponseDto> getDetailInfomation(@PathVariable Integer id) {
         UserResponseDto result = userService.getDetailInfomation(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PostMapping("/update")
+    @PreAuthorize("hasRole('USER') or hasRole('TEACHER')")
+    public ResponseEntity<UserResponseDto> updateDetailInfomation(@RequestBody UserDetailDto dto){
+        UserResponseDto result = userService.updateDetailInfomation(dto);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

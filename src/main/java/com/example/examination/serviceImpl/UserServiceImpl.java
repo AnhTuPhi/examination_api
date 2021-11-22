@@ -1,7 +1,11 @@
 package com.example.examination.serviceImpl;
 
+import com.example.examination.dto.request.UserDetailDto;
 import com.example.examination.dto.response.UserResponseDto;
+import com.example.examination.entity.User;
+import com.example.examination.repository.UserRepository;
 import com.example.examination.service.UserService;
+import com.example.examination.utils.LogUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -11,13 +15,17 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    public final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     EntityManager entityManager;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public UserResponseDto getDetailInfomation(Integer id) {
@@ -51,17 +59,25 @@ public class UserServiceImpl implements UserService {
                 userResponseDto.setUsername(row[7].toString());
             }
         }
-        logger.info(toJson(userResponseDto));
+        logger.info(LogUtils.toJson(userResponseDto));
         return userResponseDto;
     }
-    public String toJson(Object obj) {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            // convert user object to json string and return it
-            return mapper.writeValueAsString(obj);
-        } catch (JsonProcessingException e) {
-            logger.error(e.getMessage(), e);
+
+    @Override
+    public UserResponseDto updateDetailInfomation(UserDetailDto dto) {
+        if(dto != null){
+            User user = null;
+            if(dto.getUserId() != null){
+                user = userRepository.getById(dto.getUserId());
+            }
+            user.setPassword(dto.getPassword());
+            user.setEmail(dto.getEmail());
+            user.setAge(dto.getAge());
+            user.setPhoneNumber(dto.getPhoneNumber());
+            user.setModifyDate(new Date());
+            user = userRepository.save(user);
         }
-        return "";
+        return null;
     }
+
 }
