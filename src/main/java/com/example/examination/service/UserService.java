@@ -6,5 +6,5 @@ import com.example.examination.dto.response.UserResponseDto;
 public interface UserService {
     UserResponseDto getDetailInfomation(Integer id);
 
-    UserResponseDto updateDetailInfomation(UserDetailDto dto);
+    UserResponseDto updateDetailInfomation(UserDetailDto dto, String curUser);
 }

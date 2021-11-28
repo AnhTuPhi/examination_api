@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -26,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @Override
     public UserResponseDto getDetailInfomation(Integer id) {
@@ -64,13 +68,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDto updateDetailInfomation(UserDetailDto dto) {
+    public UserResponseDto updateDetailInfomation(UserDetailDto dto, String curUser) {
         if(dto != null){
             User user = null;
             if(dto.getUserId() != null){
-                user = userRepository.getById(dto.getUserId());
+//                user = userRepository.getById(dto.getUserId());
+                user = userRepository.findByUserName(curUser);
             }
-            user.setPassword(dto.getPassword());
+            user.setPassword(encoder.encode(dto.getPassword()));
             user.setEmail(dto.getEmail());
             user.setAge(dto.getAge());
             user.setPhoneNumber(dto.getPhoneNumber());
