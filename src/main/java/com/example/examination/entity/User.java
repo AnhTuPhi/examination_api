@@ -1,10 +1,7 @@
 package com.example.examination.entity;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(	name = "tbl_users",
@@ -44,6 +41,9 @@ public class User {
 
     @Column(name = "modify_date")
     private Date modifyDate;
+
+    @OneToMany(mappedBy="createdBy") // chú ý biến cart này được khai báo trong Class Item bên dưới. Chúng phải giống y chang nhau cái tên
+    private List<Room> rooms;
 
     public User() {
     }
@@ -129,6 +129,14 @@ public class User {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void listRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 }
 
