@@ -1,5 +1,8 @@
 package com.example.examination.controllers;
 
+import com.example.examination.config.db.dto.UserResponse;
+import com.example.examination.service.TeacherSesrvice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +13,9 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
+    @Autowired
+    TeacherSesrvice teacherSesrvice;
+
     @GetMapping("/all")
     public String allAccess() {
         return "Public Content.";
