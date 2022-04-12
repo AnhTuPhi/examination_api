@@ -7,6 +7,7 @@ import com.example.examination.dto.response.MessageResponse;
 import com.example.examination.entity.ERole;
 import com.example.examination.entity.Role;
 import com.example.examination.entity.User;
+import com.example.examination.helper.Const;
 import com.example.examination.repository.RoleRepository;
 import com.example.examination.repository.UserRepository;
 import com.example.examination.serviceImpl.UserDetailsImpl;
@@ -88,7 +89,8 @@ public class AuthController {
                 signUpRequest.getAge(),
                 signUpRequest.getPhoneNumber(),
                 new Date(),
-                new Date()
+                new Date(),
+                Const.USER_STUDENT_TYPE
         );
 
         Set<String> strRoles = signUpRequest.getRole();

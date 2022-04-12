@@ -45,11 +45,14 @@ public class User {
     @OneToMany(mappedBy="createdBy") // chú ý biến cart này được khai báo trong Class Item bên dưới. Chúng phải giống y chang nhau cái tên
     private List<Room> rooms;
 
+    @Column(name = "user_type")
+    private String userType;
+
     public User() {
     }
 
     public User(String username, String email, String password, Integer age,
-                String phoneNumber, Date createDate, Date modifyDate) {
+                String phoneNumber, Date createDate, Date modifyDate, String userType) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -57,6 +60,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
+        this.userType = userType;
     }
 
     public Integer getId() {
@@ -137,6 +141,14 @@ public class User {
 
     public void listRooms(List<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }
 
