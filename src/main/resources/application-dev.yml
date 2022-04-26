@@ -5,3 +5,7 @@ dbconfigs:
       q-mode: "db"
       q-timeout: [5, 3]
       q-fallback: false
+    - func-name: "ins_user_v1"
+      always-write-file: false
+    - func-name: "ins_log_activity_v1"
+      always-write-file: false

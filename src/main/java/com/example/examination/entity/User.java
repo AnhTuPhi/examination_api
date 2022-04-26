@@ -48,11 +48,14 @@ public class User {
     @Column(name = "user_type")
     private String userType;
 
+    @Column(name = "is_locked")
+    private Integer isLocked;
+
     public User() {
     }
 
     public User(String username, String email, String password, Integer age,
-                String phoneNumber, Date createDate, Date modifyDate, String userType) {
+                String phoneNumber, Date createDate, Date modifyDate, String userType, Integer isLocked) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -61,6 +64,7 @@ public class User {
         this.createDate = createDate;
         this.modifyDate = modifyDate;
         this.userType = userType;
+        this.isLocked = isLocked;
     }
 
     public Integer getId() {
@@ -150,5 +154,14 @@ public class User {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
+    public Integer getIsLocked() {
+        return isLocked;
+    }
+
+    public void setIsLocked(Integer isLocked) {
+        this.isLocked = isLocked;
+    }
+
 }
 
