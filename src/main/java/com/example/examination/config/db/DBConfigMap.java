@@ -21,7 +21,6 @@ public class DBConfigMap {
                     configMaps = new HashMap<>(configs.size());
                     for (DBConfig config : configs) {
                         configMaps.put(config.getFuncName(), config);
-                        System.out.println("configMap " + config.getFuncName() );
                     }
                 }
             }
