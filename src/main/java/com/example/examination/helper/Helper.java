@@ -140,6 +140,14 @@ public class Helper {
         return (_curUser.getUserType().equals(Const.USER_STUDENT_TYPE));
     }
 
+    public static boolean isAdmin(com.example.examination.entity.User _curUser) {
+        return (_curUser.getUserType().equals(Const.USER_ADMIN_TYPE));
+    }
+
+    public static boolean isTeacher(com.example.examination.entity.User _curUser) {
+        return (_curUser.getUserType().equals(Const.USER_TEACHER_TYPE));
+    }
+
     public static boolean isPhoneValid(String phone, String country) {
         String regex = "^\\+?\\d{1,3}?[- .]?\\(?(?:\\d{2,3})\\)?[- .]?\\d\\d\\d[- .]?\\d\\d\\d$";
         if (Helper.isIndonesia(country)) {
