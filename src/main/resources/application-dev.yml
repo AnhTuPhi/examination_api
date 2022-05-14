@@ -9,3 +9,9 @@ dbconfigs:
       always-write-file: false
     - func-name: "ins_log_activity_v1"
       always-write-file: false
+    - func-name: "ins_class_v1"
+      always-write-file: false
+    - func-name: "get_class_v1"
+      q-mode: "db"
+      q-timeout: [5, 3]
+      q-fallback: false
