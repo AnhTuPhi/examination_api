@@ -2,6 +2,7 @@ package com.example.examination.config.db.dto;
 
 public class UserParam {
     private Integer userId;
+    private String username;
 
     public Integer getUserId() {
         return userId;
@@ -9,5 +10,13 @@ public class UserParam {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

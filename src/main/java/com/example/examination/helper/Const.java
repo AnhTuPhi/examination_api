@@ -11,8 +11,8 @@ public class Const {
 
     //const user
     public static final String USER_STUDENT_TYPE = "student";
-    public static final String ADMIN_STUDENT_TYPE = "admin";
-    public static final String TEACHER_STUDENT_TYPE = "teacher";
+    public static final String USER_ADMIN_TYPE = "admin";
+    public static final String USER_TEACHER_TYPE = "teacher";
     public static final int SYSTEM_TYPE = 0;
     public static final int LOCKED = 1;
     public static final int UN_LOCKED = 0;

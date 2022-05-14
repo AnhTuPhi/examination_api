@@ -1,6 +1,8 @@
 package com.example.examination.controllers;
 
 import com.example.examination.config.db.dto.UserResponse;
+import com.example.examination.exception.EAException;
+import com.example.examination.helper.Helper;
 import com.example.examination.service.TeacherSesrvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,7 +14,7 @@ import java.security.Principal;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/test")
-public class TestController {
+public class TestController extends BaseController{
     @Autowired
     TeacherSesrvice teacherSesrvice;
 
@@ -60,5 +62,13 @@ public class TestController {
         }
 
         return sb.toString();
+    }
+
+    @GetMapping("/getCurrentId")
+    public Integer getCurrentUserId () throws EAException {
+        Integer id = getCurrentUser().getId();
+        if(Helper.isTeacher(_curUser))
+            System.out.println("teacher");
+        return id;
     }
 }

@@ -15,3 +15,7 @@ dbconfigs:
       q-mode: "db"
       q-timeout: [5, 3]
       q-fallback: false
+    - func-name: "get_user_v2"
+      q-mode: "db"
+      q-timeout: [5, 3]
+      q-fallback: false
