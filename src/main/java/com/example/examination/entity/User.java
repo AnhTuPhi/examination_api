@@ -42,9 +42,6 @@ public class User {
     @Column(name = "modify_date")
     private Date modifyDate;
 
-    @OneToMany(mappedBy="createdBy") // chú ý biến cart này được khai báo trong Class Item bên dưới. Chúng phải giống y chang nhau cái tên
-    private List<Room> rooms;
-
     @Column(name = "user_type")
     private String userType;
 
@@ -137,14 +134,6 @@ public class User {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
-    public void listRooms(List<Room> rooms) {
-        this.rooms = rooms;
     }
 
     public String getUserType() {

@@ -1,41 +1,40 @@
-package com.example.examination.dto.request;
-
-import com.example.examination.entity.User;
+package com.example.examination.dto.response;
 
 import java.util.Date;
 
-public class RoomDto {
-    private Integer roomId;
-    private String roomName;
-    private String roomCode;
+public class ClassResponseV1 {
+    private Integer id;
+    private String name;
+    private String code;
     private String title;
     private String subTitle;
     private String subject;
-    private User createdBy;
+    private Integer createdBy;
     private Date createDate;
+    private Date modifyDate;
 
-    public Integer getRoomId() {
-        return roomId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getRoomName() {
-        return roomName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRoomCode() {
-        return roomCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setRoomCode(String roomCode) {
-        this.roomCode = roomCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getTitle() {
@@ -62,11 +61,11 @@ public class RoomDto {
         this.subject = subject;
     }
 
-    public User getCreatedBy() {
+    public Integer getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public void setCreatedBy(Integer createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -76,5 +75,13 @@ public class RoomDto {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
     }
 }

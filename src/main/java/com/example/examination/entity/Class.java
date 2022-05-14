@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tbl_room")
-public class Room {
+@Table(name = "tbl_class")
+public class Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "room_id")
-    private Integer roomId;
+    @Column(name= "id")
+    private Integer id;
 
-    @Column(name = "room_name")
-    private String roomName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "room_code")
-    private String roomCode;
+    @Column(name = "code")
+    private String code;
 
     @Column(name = "title")
     private String title;
@@ -26,35 +26,37 @@ public class Room {
     @Column(name = "subject")
     private String subject;
 
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
-    private User createdBy;
+    @Column(name = "created_by")
+    private Integer createdBy;
 
     @Column(name = "create_date")
     private Date createDate;
 
-    public Integer getRoomId() {
-        return roomId;
+    @Column(name = "modify_date")
+    private Date modifyDate;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getRoomName() {
-        return roomName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRoomCode() {
-        return roomCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setRoomCode(String roomCode) {
-        this.roomCode = roomCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getTitle() {
@@ -81,11 +83,11 @@ public class Room {
         this.subject = subject;
     }
 
-    public User getCreatedBy() {
+    public Integer getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public void setCreatedBy(Integer createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -95,5 +97,13 @@ public class Room {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
     }
 }
